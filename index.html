@@ -6,6 +6,8 @@
   <title> Desafio Ahgora </title> 
   <link rel="stylesheet" href="bootstrap-5.0.1-dist/css/">
   <link rel="stylesheet" href="CSS.css">
+  <script src="JS.js"></script>
+  <script src="jquery-3.6.0.min.js"></script>
 </head> 
 
 <body>
@@ -16,11 +18,11 @@
             </label> <br>
             
             <label>CEP:
-                <input type="number" id="CEP">
+                <input type="text" class="form-control" onkeypress="$(this).mask('00.000-000')" onchange="testeCEP(this.value)">
             </label> <br>
 
             <label> RUA:
-                <input type="string" id="RUA">
+                <input type="string" id="RUA" disabled>
             </label><br>
 
             <label> Número:
@@ -32,21 +34,24 @@
             </label><br>
 
             <label>Bairro:
-                <input type="string" id="BAIRRO">
+                <input type="string" id="BAIRRO" disabled>
             </label><br>
 
             <label>Cidade:
-                <input type="string" id="CIDADE">
+                <input type="string" id="CIDADE" disabled>
             </label><br>
 
             <label>Estado:
-                <input type="string" id="ESTADO">
+                <input type="string" id="ESTADO" disabled>
             </label><br>
-            
+
             <label>CPF:
                 <input type="number" id="CPF">
             </label>
-   
+            
+            <script>
+                $("#CEP").mask("99999-999");
+            </script>
         </form>
     </div>
 </body>

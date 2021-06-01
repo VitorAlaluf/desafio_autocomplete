@@ -1,0 +1,26 @@
+
+#center{
+    height: 315px;
+    width: 790px;
+
+    margin: auto;
+    padding: 20px;
+
+    font-weight: 700;
+    text-align: center;
+
+    /*background-color: rgba(62, 26, 98, 0.55);*/
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    backdrop-filter: blur(2px);
+    
+    border: 2px solid rgba(62, 26, 98, 0.55);
+    border-radius: 15px;
+
+}
