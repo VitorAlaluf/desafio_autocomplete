@@ -1,57 +1,122 @@
-<!DOCTYPE html> 
-<html lang="pt-BR"> 
-<head> 
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <title> Desafio Ahgora </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta charset="utf-8">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta charset="utf-8"> 
-  <title> Desafio Ahgora </title> 
-  <link rel="stylesheet" href="bootstrap-5.0.1-dist/css/">
+  <link rel="stylesheet" href="bootstrap-5.0.1-dist/css/bootstrap.css">
   <link rel="stylesheet" href="CSS.css">
   <script src="JS.js"></script>
   <script src="jquery-3.6.0.min.js"></script>
-</head> 
+  <script type="text/javascript" src="bootstrap-5.0.1-dist/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</head>
 
 <body>
-    <div id="center">
-        <form id="form01">
-            <label> Nome:
-                <input type="string" id="NAME">
-            </label> <br>
-            
-            <label>CEP:
-                <input type="text" class="form-control" onkeypress="$(this).mask('00.000-000')" onchange="testeCEP(this.value)">
-            </label> <br>
+  <div id="center">
 
-            <label> RUA:
-                <input type="string" id="RUA" disabled>
-            </label><br>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+      <div class="carousel-inner">
 
-            <label> Número:
-                <input type="number" id="NUMERO">    
-            </label><br>
 
-            <label> Complemento:
-                <input type="string" id="COMPLEMENTO">          
-            </label><br>
 
-            <label>Bairro:
-                <input type="string" id="BAIRRO" disabled>
-            </label><br>
+        <div class="carousel-item active">
 
-            <label>Cidade:
-                <input type="string" id="CIDADE" disabled>
-            </label><br>
+          <form class="forms">
+            <div class="mb-3">
+              <label for="NAME" class="form-label">Nome:</label>
+              <input type="text" class="form-control" id="NAME" placeholder="Ex.: Miles Tone">
+            </div>
+            <div class="mb-3">
+              <label for="CPF" class="form-label">CPF:</label>
+              <input type="text" class="form-control" id="CPF" placeholder="000.000.000-00" onchange="bufferCPF(this.value)" onkeypress="$(this).mask('000.000.000-00');">
+            </div>
+          </form>
 
-            <label>Estado:
-                <input type="string" id="ESTADO" disabled>
-            </label><br>
+        </div>
 
-            <label>CPF:
-                <input type="number" id="CPF">
-            </label>
-            
-            <script>
-                $("#CEP").mask("99999-999");
-            </script>
-        </form>
+
+
+        <div class="carousel-item">
+
+          <form class="forms">
+
+            <div class="mb-3">
+              <label for="CEP" class="form-label">CEP:</label>
+              <input type="text" class="form-control" id="CEP" placeholder="Ex.: 04035-000"
+                onchange="testeCEP(this.value)"  onkeypress="$(this).mask('00000-000');">
+
+            </div>
+
+
+            <div class="row g-3">
+              <div class="col">
+                <label for="RUA" class="form-label">Rua: </label>
+                <input type="text" class="form-control" id="RUA" placeholder="Ex.: R. Domingos de Morais" aria-label="RUA" data-mask="(00) 0000-0000" data-mask-selectonfocus="true" />
+              </div>
+              <div class="col-md-3">
+                <label for="NUMERO" class="form-label" id="LABEL_NUMERO">Nº :</label>
+                <input type="number" class="form-control" id="NUMERO" placeholder="Ex.: 2187" aria-label="NUMERO">
+              </div>
+            </div><br>
+
+
+            <div class="mb-3">
+              <label for="COMPLEMENTO" class="form-label">Complemento:</label>
+
+              <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
+
+                <input type="radio" class="btn-check" name="btnradio" id="SIM" autocomplete="off" value="true"
+                  onclick="toggle(true)" checked>
+                <label class="btn btn-outline-primary" for="SIM">SIM</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="NÃO" autocomplete="off" value="false"
+                  onclick="toggle(false)">
+                <label class="btn btn-outline-primary" for="NÃO">NÃO</label>
+              </div>
+
+              <input type="text" class="form-control" id="COMPLEMENTO" placeholder="Ex.: Apartamento 01">
+            </div>
+
+            <div class="mb-3">
+              <label for="BAIRRO" class="form-label">Bairro:</label>
+              <input type="text" class="form-control" id="BAIRRO" placeholder="Vila Mariana">
+            </div>
+
+
+            <div class="row g-3">
+              <div class="col">
+                <label for="CIDADE" class="form-label">Cidade:</label>
+                <input type="text" class="form-control" id="CIDADE" placeholder="São Paulo" aria-label="CIDADE">
+              </div>
+              <div class="col">
+                <label for="ESTADO" class="form-label">Estado:</label>
+                <input type="text" class="form-control" id="ESTADO" placeholder="São Paulo" aria-label="ESTADO">
+              </div>
+            </div>
+
+
+
+          </form>
+
+        </div>
+
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </div>
+
+
+  
 </body>
